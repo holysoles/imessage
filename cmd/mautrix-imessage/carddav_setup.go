@@ -59,6 +59,10 @@ func runCardDAVSetup() {
 		fmt.Fprintf(os.Stderr, "✓ Discovered CardDAV URL: %s\n", discoveredURL)
 	}
 
+	// Test the connection
+	// TODO construct an externalCardDavConnector based on inputs. May need to encrypt password first?
+	// TODO call extConnector.Test() and err check
+
 	// Encrypt the password
 	encrypted, err := connector.EncryptCardDAVPassword(*password)
 	if err != nil {

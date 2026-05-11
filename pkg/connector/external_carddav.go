@@ -91,6 +91,13 @@ func (c *externalCardDAVClient) doRequest(method, url, body string, depth string
 	return c.httpClient.Do(req)
 }
 
+// TestCardDav validates that the configured CardDav connection can be reached and authenticated successfully
+func (c *externalCardDAVClient) TestContacts(log zerolog.Logger) error {
+	// discoverPrincipal should catch common issues, such as incorrect passwords or unreachable hosts
+	_, err := c.discoverPrincipal(log)
+	return err
+}
+
 // SyncContacts fetches all contacts from the external CardDAV server.
 func (c *externalCardDAVClient) SyncContacts(log zerolog.Logger) error {
 	// Step 1: Discover principal

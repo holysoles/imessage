@@ -144,3 +144,5 @@ func TestExternalCardDAVClient_GetAllContacts(t *testing.T) {
 		t.Fatalf("got %d contacts, want 2", len(all))
 	}
 }
+
+// TODO add function to test the carddav connection method
